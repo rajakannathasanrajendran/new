@@ -1,0 +1,383 @@
+.header {
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.2rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  overflow: visible;
+}
+
+/* Desktop only - reduce height */
+@media (min-width: 969px) {
+  .header-container {
+    padding: 0.15rem 2.25rem;
+  }
+
+  .logo-img {
+    height: 140px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+}
+
+/* Logo Section */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  overflow: visible;
+  position: relative;
+}
+
+.logo-img {
+  width: auto;
+  height: 140px;
+  max-width: 350px;
+  min-width: 140px;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: brightness(0.95);
+  transition: all 0.3s ease;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #eb6229;
+  line-height: 1.2;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: 1px;
+}
+
+.logo-subtitle {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #eb6229;
+  line-height: 1;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  justify-content: flex-end;
+  margin-right: 1.25rem;
+}
+
+.nav-link {
+  color: #eb6229;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.35rem 0;
+  /* text-transform: upperc; */
+  letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+  color: #eb6229;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #eb6229;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active link underline */
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Order Button */
+.order-btn {
+  background-color: #eb6229;
+  color: #1a1a1a;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  display: inline-block;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(235, 171, 1, 0.3);
+}
+
+.order-btn:hover {
+  background-color: #e24807;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(235, 171, 1, 0.5);
+}
+
+/* Order Button in Mobile Menu */
+.order-btn-mobile {
+  display: none;
+  background-color: #eb6229;
+  color: #1a1a1a;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 80%;
+  max-width: 250px;
+  margin: 2rem auto 0;
+  text-decoration: none;
+  text-align: center;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  /* box-shadow: 0 2px 8px rgba(235, 171, 1, 0.3); */
+}
+
+.order-btn-mobile:hover {
+  background-color: #e24807;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  /* box-shadow: 0 4px 12px rgba(235, 171, 1, 0.5); */
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  width: 30px;
+  height: 4px;
+  background-color: #eb6229;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .header-container {
+    padding: 0.6rem 1.5rem;
+  }
+
+  .logo-img {
+    height: 120px;
+    max-width: 320px;
+    min-width: 160px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem;
+  }
+
+  .order-btn {
+    display: none;
+  }
+
+  .order-btn-mobile {
+    display: block;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .logo-title {
+    font-size: 1.3rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
+
+  .header-container {
+    padding: 0.6rem 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .logo-img {
+    height: 110px;
+    max-width: 280px;
+    min-width: 150px;
+  }
+
+  .logo-title {
+    font-size: 1.1rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .order-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .logo-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    width: 100%;
+  }
+
+  .header-container {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .order-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .logo-img {
+    height: 95px;
+    max-width: 220px;
+    min-width: 130px;
+  }
+
+  .mobile-menu-toggle span {
+    width: 28px;
+    height: 3.5px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .logo-img {
+    height: 85px;
+    max-width: 200px;
+    min-width: 120px;
+  }
+
+  .header-container {
+    padding: 0.6rem 1rem;
+  }
+
+  .mobile-menu-toggle span {
+    width: 26px;
+    height: 3.5px;
+  }
+}
