@@ -24,7 +24,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Clear old files
+      - name: Clear old files on Hostinger
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
@@ -33,7 +33,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: rm -rf ~/public_html/maghil-test/*
 
-      - name: Upload dist files
+      - name: Upload dist files only
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
